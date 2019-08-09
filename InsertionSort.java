@@ -28,29 +28,23 @@ public class InsertionSort {
 		if(len==1) {
 			return sort;
 		}
-		System.out.println();
-		for(int i=0;i<sort.length;i++) {
-			System.out.println(sort[i]);
-		}
 		int currMinInd=sort.length-len;
-		for(int j=1;j<sort.length;j++) {
+		for(int j=sort.length-len+1;j<sort.length;j++) {
 			if(sort[j]<sort[currMinInd]) {
 				currMinInd=j;
 			}
 		}
 		int[] next=new int[sort.length];
-		//int j=sort.length-len;
 		int j;
 		
 		for(j=0;j<(sort.length-len);j++) {
 			next[j]=sort[j];
 		}
-		System.out.println("j is"+j);
 		int temp=sort[j];
 		next[j]=sort[currMinInd];
 		j++;
 		
-		for(int i=j;i<len;i++) {
+		for(int i=j;i<sort.length;i++) {
 			if(i!=currMinInd) {
 				next[i]=sort[i];
 				//j++;
@@ -59,10 +53,6 @@ public class InsertionSort {
 				System.out.println("temp is"+temp);
 				next[i]=temp;
 			}
-		}
-		System.out.println("next:");
-		for(int i=0;i<next.length;i++) {
-			System.out.println(next[i]);
 		}
 		return selSort(next,len-1);
 	}
